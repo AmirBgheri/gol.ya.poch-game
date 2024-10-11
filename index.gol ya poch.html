@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: darkslategrey;
+        }
+        .hand{
+            display: flex;
+            justify-content: space-evenly;
+
+            >.name{
+                display: flex;
+                height: 200px;
+                width: 60px;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
+                >p{
+                    font-size: 25px;
+                    width: 50px;
+                    height: 40px;
+                }
+                >h2{
+                    text-align: center;
+                    padding-left: 20px;
+                    /* border: 1px solid red; */
+                }
+                >.goal{
+                    width: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 25px;
+                    padding-left: 20px;
+                }
+            }
+            >.left{
+            width: 50px;
+            height: 250px;
+            background-color: blue;
+            border: 1px solid black;
+            
+            >span{
+                    width: 60px;
+                    aspect-ratio: 1/1;
+                    border-radius:50% ;
+                    background-color: blanchedalmond;
+                    display: flex;
+                    transform: translateY(230px) translateX(-5px);
+                    clip-path: inset(5% 0 17% 0 round 500px);
+                }
+            }
+            >.right{
+             width: 50px;
+            height: 250px;
+            background-color: blue;
+            border: 1px solid black;
+            
+            >span{
+                    width: 60px;
+                    aspect-ratio: 1/1;
+                    border-radius:50% ;
+                    background-color: blanchedalmond;
+                    display: flex;
+                    transform: translateY(230px) translateX(-5px);
+                    clip-path: inset(5% 0 20% 0 round 500px);
+                }
+            }
+        }
+        
+    </style>
+</head>
+<body>
+        <div class="hand">
+
+           <div class="name">
+            <p>player1</p>
+            <h2 id="player">***</h2>
+            <div class="goal">
+               <span>goal:</span>
+               <h3 class="goal1">0</h3>
+            </div>
+           </div>
+            <div class="left">
+                <span></span>
+            </div>
+            <div class="right">      
+                
+             <span></span>
+            </div>   
+
+            <div class="name">
+                <p>player2</p>
+                <h2 >Robot</h2>
+                <div class="goal">
+                    <span>goal:</span>
+                    <h3 class="goal2">0</h3>
+                 </div>
+               </div>
+           
+        </div>
+
+
+
+
+</body>
+    <script>
+        const name = document.querySelector('#player')
+        const left = document.querySelector('.left')
+        const right = document.querySelector('.right')
+        const goalleft = document.querySelector('.goal1')
+        const goalright = document.querySelector('.goal2')
+        console.log(name);
+        
+        let date= new Date()
+       date= date.getHours()
+       console.log(date);
+       let time = ''
+       switch(true){
+        case date<6 : time = 'کی این موقع شب بازی میکنه اخه😂'; break;
+        case date<9: time='امیدوارم این موقع صبح موفق باشی' ; break;
+        case date<12: time='الان موقع بازیه' ; break;
+        case date<16: time='ظهر رو با بازی بگذرون' ; break;
+        case date<20: time='چه عصر زیبااایی' ; break;
+        case date<0: time='قبا خواب بازی کن' ; break;
+       }
+        let x = prompt(time+' ,,اسم خود را وارد کنید')
+        name.innerHTML=x
+        let i = 1
+        let b = 1
+        para()
+
+     function para(){
+     
+        console.log('ggg');
+        
+       
+        left.addEventListener('click' , ()=>{
+            let num =( Math.floor(Math.random()*2)) + 1
+            console.log(num);
+            if(num==1){
+                alert('bordi')
+                goalleft.innerHTML=i++
+                
+            }else{
+                alert('bakhti')
+                goalright.innerHTML=b++
+               
+            }
+            
+        })
+        right.addEventListener('click' , ()=>{
+            let num =( Math.floor(Math.random()*2)) + 1
+            console.log(num);
+            if(num==2){
+                alert('bordi')
+                goalleft.innerHTML=i++
+                
+            }else{
+                alert('bakhti')
+                goalright.innerHTML=b++
+                
+            }
+          
+        })
+      
+     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //    alert(time)
+
+
+    </script>
+</html>
